@@ -1,0 +1,29 @@
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: all-openshift-policies
+placementBindingDefaults:
+  name: all-openshift-policies
+policies:
+  - manifests:
+    - path: manifests/applicationset.yaml
+    name: all-openshift-policies
+policyDefaults:
+  categories:
+    - CM Configuration Management
+  complianceType: musthave
+  controls:
+    - CM-2 Baseline Configuration
+  namespace: open-cluster-management-global-set
+  remediationAction: enforce
+  severity: high
+  standards:
+    - NIST SP 800-53
+policySets:
+  - description: Security Specific Policies for All OpenShift Clusters
+    name: all-openshift-policies
+    placement:
+      placementPath: hub-placement.yaml
+    policies:
+      - all-openshift-policies
