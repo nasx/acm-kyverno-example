@@ -6,7 +6,7 @@ patches:
     target:
       group: cluster.open-cluster-management.io
       kind: Placement
-      name: kyverno-placement
+      name: kyverno-openshift-appset-placement
       version: v1beta1
 resources:
   - ../../base
