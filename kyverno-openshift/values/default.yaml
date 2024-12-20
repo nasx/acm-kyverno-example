@@ -31,4 +31,4 @@ features:
 policyReportsCleanup:
   enabled: false
 reportsController:
-  enabled: true
+  enabled: false
