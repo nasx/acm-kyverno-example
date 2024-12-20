@@ -2,17 +2,19 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PolicyGenerator
 metadata:
-  name: all-openshift-policies
+  name: hub-gitops
 placementBindingDefaults:
-  name: all-openshift-policies
+  name: hub-gitops
 policies:
   - manifests:
     - path: manifests/applicationset.yaml
-    name: all-openshift-policies
+    name: hub-gitops-bootstrap
 policyDefaults:
   categories:
     - CM Configuration Management
   complianceType: musthave
+  configurationPolicyAnnotations:
+    policy.open-cluster-management.io/disable-templates: 'true'
   controls:
     - CM-2 Baseline Configuration
   namespace: open-cluster-management-global-set
@@ -22,8 +24,8 @@ policyDefaults:
     - NIST SP 800-53
 policySets:
   - description: Security Specific Policies for All OpenShift Clusters
-    name: all-openshift-policies
+    name: hub-gitops
     placement:
       placementPath: hub-placement.yaml
     policies:
-      - all-openshift-policies
+      - hub-gitops-bootstrap

@@ -1,0 +1,36 @@
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: baseline-security
+placementBindingDefaults:
+  name: policy-gitops-baseline-security
+policies:
+  - name: kyverno-openshift
+    manifests:
+      - path: includes/kyverno-openshift
+  # - name: kyverno-policies
+  #   dependencies:
+  #     - name: kyverno-openshift
+  #   manifests:
+  #     - path: includes/kyverno-policies
+policyDefaults:
+  categories:
+    - CM Configuration Management
+  complianceType: musthave
+  configurationPolicyAnnotations:
+    policy.open-cluster-management.io/disable-templates: 'true'
+  controls:
+    - CM-2 Baseline Configuration
+  placementName: hub-placement
+  namespace: open-cluster-management-global-set
+  remediationAction: enforce
+  severity: high
+  standards:
+    - NIST SP 800-53
+policySets:
+  - description: Security Specific Policies for All OpenShift Clusters
+    name: baseline-security
+    policies:
+      - kyverno-openshift
+      # - kyverno-policies

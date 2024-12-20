@@ -1,8 +1,5 @@
 ---
 - op: replace
-  path: /metadata/name
-  value: kyverno-all-openshift-placement
-- op: replace
   path: /spec/predicates/0/requiredClusterSelector/labelSelector/matchExpressions
   value:
     - key: vendor

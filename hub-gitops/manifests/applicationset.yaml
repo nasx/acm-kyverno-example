@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: hub-gitops-all-openshift-policies
+  name: hub-gitops
   namespace: uc2-openshift-gitops
 spec:
   goTemplate: true
