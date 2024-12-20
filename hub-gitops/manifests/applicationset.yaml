@@ -12,7 +12,7 @@ spec:
         repoURL: https://github.com/nasx/acm-kyverno-example.git
         revision: HEAD
         directories:
-          - path: kyverno-openshift/overlay/all-clusters
+          - path: policysets/hub/baseline-security
   template:
     metadata:
       annotations:
