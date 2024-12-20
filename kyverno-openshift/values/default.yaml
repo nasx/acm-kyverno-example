@@ -5,5 +5,30 @@ backgroundController:
   replicas: 2
 cleanupController:
   replicas: 2
+crds:
+  groups:
+    reports:
+      clusterephemeralreports: false
+      ephemeralreports: false
+    wgpolicyk8s:
+      clusterpolicyreports: false
+      policyreports: false
+features:
+  admissionReports:
+    enabled: false
+  aggregateReports:
+    enabled: false
+  policyReports:
+    enabled: false
+  reporting:
+    generate: false
+    imageVerify: false
+    mutate: false
+    mutateExisting: false
+    validate: false
+  validatingAdmissionPolicyReports:
+    enabled: false
+policyReportsCleanup:
+  enabled: false
 reportsController:
-  replicas: 2
+  enabled: false
