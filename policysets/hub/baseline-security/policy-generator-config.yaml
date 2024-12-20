@@ -9,11 +9,11 @@ policies:
   - name: kyverno-openshift
     manifests:
       - path: includes/kyverno-openshift
-  # - name: kyverno-policies
-  #   dependencies:
-  #     - name: kyverno-openshift
-  #   manifests:
-  #     - path: includes/kyverno-policies
+  - name: kyverno-policies
+    dependencies:
+      - name: kyverno-openshift
+    manifests:
+      - path: includes/kyverno-policies/uc2-app
 policyDefaults:
   categories:
     - CM Configuration Management
@@ -35,4 +35,4 @@ policySets:
       placementName: hub-placement
     policies:
       - kyverno-openshift
-      # - kyverno-policies
+      - kyverno-policies

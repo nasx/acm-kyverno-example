@@ -2,30 +2,27 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PolicyGenerator
 metadata:
-  name: hub-gitops
+  name: kyverno-policies-uc2-app
 placementBindingDefaults:
-  name: hub-gitops
+  name: kyverno-policies-uc2-app
 policies:
-  - manifests:
-      - path: manifests/applicationset.yaml
-    name: hub-gitops-bootstrap
+  - name: uc2-app-kyverno-policies
+    manifests:
+      - path: manifests/uc2-app-namespace-require-labels.yaml
 policyDefaults:
   categories:
     - CM Configuration Management
   complianceType: musthave
+  copyPolicyMetadata: false
   configurationPolicyAnnotations:
     policy.open-cluster-management.io/disable-templates: 'true'
   controls:
     - CM-2 Baseline Configuration
+  informKyvernoPolicies: false
   namespace: open-cluster-management-global-set
+  placement:
+    placementPath: uc2-app-placement.yaml
   remediationAction: enforce
   severity: high
   standards:
     - NIST SP 800-53
-policySets:
-  - description: GitOps "Big Bang" for Hub Management
-    name: hub-gitops
-    placement:
-      placementPath: hub-placement.yaml
-    policies:
-      - hub-gitops-bootstrap

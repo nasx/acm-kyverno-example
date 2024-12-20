@@ -1,0 +1,23 @@
+---
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: uc2-app-namespace-require-labels
+spec:
+  background: false
+  rules:
+    - match:
+        resources:
+          kinds:
+            - Namespace
+          name: uc2-app-*
+      name: enforce-uc2-app-namespace-labels
+      validate:
+        message: Namespaces starting with 'uc2-app-' must have the labels 'app', 'environment', and 'team'.
+        pattern:
+          metadata:
+            labels:
+              app: '?*'
+              environment: '?*'
+              team: '?*'
+  validationFailureAction: enforce
