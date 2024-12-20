@@ -18,6 +18,7 @@ policyDefaults:
   categories:
     - CM Configuration Management
   complianceType: musthave
+  copyPolicyMetadata: false
   configurationPolicyAnnotations:
     policy.open-cluster-management.io/disable-templates: 'true'
   controls:
