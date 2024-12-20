@@ -8,10 +8,10 @@ cleanupController:
 crds:
   groups:
     reports:
-      clusterephemeralreports: false
-      ephemeralreports: false
+      clusterephemeralreports: true
+      ephemeralreports: true
     wgpolicyk8s:
-      clusterpolicyreports: false
+      clusterpolicyreports: true
       policyreports: false
 features:
   admissionReports:
@@ -31,4 +31,4 @@ features:
 policyReportsCleanup:
   enabled: false
 reportsController:
-  enabled: false
+  enabled: true
