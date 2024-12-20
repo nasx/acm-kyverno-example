@@ -22,7 +22,8 @@ policyDefaults:
     policy.open-cluster-management.io/disable-templates: 'true'
   controls:
     - CM-2 Baseline Configuration
-  placementName: hub-placement
+  placement:
+    placementName: hub-placement
   namespace: open-cluster-management-global-set
   remediationAction: enforce
   severity: high
