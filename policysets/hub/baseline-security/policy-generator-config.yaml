@@ -10,10 +10,11 @@ policies:
     manifests:
       - path: includes/kyverno-openshift
   - name: kyverno-policies
+    consolidateManifests: false
     dependencies:
       - name: kyverno-openshift
     manifests:
-      - path: includes/kyverno-policies/uc2-app
+      - path: manifests/kyverno-policies-applicationset.yaml
 policyDefaults:
   categories:
     - CM Configuration Management
